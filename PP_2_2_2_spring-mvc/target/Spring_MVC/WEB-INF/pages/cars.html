@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table, th, td {
+            border: 3px solid;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        tr:hover td {
+            background-color: darkblue;
+        }
+        td {
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car, it : ${cars}">
+            <!--            th:style="${it.odd}? 'font-weight: bold;'">-->
+            <th th:text="${it.index}+1"></th>
+            <td th:text="${car.getCarName()}"></td>
+            <td th:text="${car.getCarColor()}"></td>
+            <td th:text="${car.getCarNumber()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
